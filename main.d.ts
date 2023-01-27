@@ -60,7 +60,6 @@ declare module '@vikhola/atlas' {
         /**
          * Method which remove dependency from the container.
          * @param key Specified key which binded to the implementation.
-         * @param params Specified params which will be used in implementation resolving
          */
         remove(key: any): void
         /**
