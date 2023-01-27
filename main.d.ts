@@ -1,5 +1,9 @@
 declare module '@vikhola/atlas' {
 
+    type Options = {
+        lazy: boolean
+    }
+
     export class Container {
         /**
          * @param config Container config which will be able with container. 
@@ -13,21 +17,41 @@ declare module '@vikhola/atlas' {
         /**
          * Method which register the dependency in context scope.
          * @param key Specified key to bind which could be any type.
-         * @param value implementation contructor or callback function which will return instance of dependency.
+         * @param value Implementation contructor or callback function which will return instance of dependency.
+         * @param parameters Dependency which should be resolved and passed as arguments.
+         * @param options Implementation options.
          */
-        addScoped(key: any, value: ((...args: any) => any) | (new (...args: any) => any)): this
+        addScoped(            
+            key: any, 
+            value: ((...args: any) => any) | (new (...args: any) => any), 
+            parameters: Array<any>, 
+            options: Options): this
         /**
          * Method which register the dependency in singleton scope.
          * @param key Specified key to bind. **NOTE**: Key could be any type, but recomended use Symbols or implementation constructor by itself 
-         * @param value implementation contructor or callback function which will return instance of implementation.
+         * @param value Implementation contructor or callback function which will return instance of implementation.
+         * @param parameters Dependency which should be resolved and passed as arguments.
+         * @param options Implementation options.
          */
-        addSingleton(key: any, value: ((app: Container, ...args: any) => any) | (new (...args: any) => any)): BindOption
+        addSingleton(
+            key: any, 
+            value: ((...args: any) => any) | (new (...args: any) => any), 
+            parameters: Array<any>, 
+            options: Options
+        ): this
         /**
          * Method which register the dependency in transient scope.
          * @param key Specified key to bind which could be any type.
-         * @param value implementation contructor or callback function.
+         * @param value Implementation contructor or callback function.
+         * @param parameters Dependency which should be resolved and passed as arguments
+         * @param options Implementation options
          */
-        addTransient(key: any, value: ((app: Container, ...args: any) => any) | (new (...args: any) => any)): Container
+        addTransient(
+            key: any, 
+            value: ((...args: any) => any) | (new (...args: any) => any), 
+            parameters: Array<any>, 
+            options: Options
+        ): this
         /**
          * Method which resolve a class instance from the container.
          * @param key Specified key binded to implementation.
