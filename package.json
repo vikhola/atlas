@@ -1,0 +1,30 @@
+{
+  "name": "@vikhola/atlas",
+  "version": "0.0.1",
+  "description": "Dependecy injection container for Node.js applications",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "homepage": "https://github.com/vikhola/atlas",
+  "keywords": [
+    "atlas",
+    "dependency injection",
+    "dependency inversion",
+    "di",
+    "inversion of control container",
+    "ioc",
+    "javascript",
+    "node",
+    "typescript",
+    "@vikhola/atlas"
+  ],
+  "scripts": {
+    "test": "node --test ./test/*.test.js"
+  },
+  "author": " <sabaziose@gmail.com> (https://github.com/SabaziosD)",
+  "license": "MIT",
+  "types": "./main.d.ts"
+}
+
